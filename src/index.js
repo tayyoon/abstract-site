@@ -8,8 +8,9 @@ class Site {
         if (nameCheck) {
             throw '';
         }
-        board.postCheck = 1;
+        board.postCheck = true;
         this.boards.push(board);
+        // console.log(board);
     }
 
     findBoardByName(name) {
@@ -28,6 +29,7 @@ class Board {
         }
         this.name = name;
         this.allArticles = [];
+        this.postCheck = false;
     }
 
     publish(article) {
@@ -52,11 +54,11 @@ class Board {
         article.createdDate = date.toISOString();
         this.allArticles.push(article);
 
-        article.publishCheck = 1;
+        article.publishCheck = true;
     }
 
     getAllArticles() {
-        console.log(this.allArticles);
+        // console.log(this.allArticles);
         return this.allArticles;
     }
 }
@@ -93,6 +95,16 @@ class Comment {
         this.author = props.author;
     }
 }
+// const comment = new Comment({
+//     content: null,
+//     author: '',
+// });
+// console.log(comment);
+// const comment1 = new Comment({
+//     content: '댓글1111',
+//     author: '강승현',
+// });
+// console.log(comment1);
 
 module.exports = {
     Site,

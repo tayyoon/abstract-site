@@ -5,7 +5,7 @@ describe('Site 요구사항 테스트', () => {
         expect(() => {
             const _site1 = new Site();
             const _site2 = new Site();
-        }).not.toThrow();
+        }).not.toThrow(); // 에외를 발생시키는지 (오류를 발생시키는지), ()안에 오류 값을 넣어줄 수도 있음
     });
 
     test('Site에는 Board를 추가하고 추가된 Board를 조회할 수 있다.', () => {
@@ -163,7 +163,7 @@ describe('Board 요구사항 테스트', () => {
         });
         noticeBoard.publish(article2);
 
-        expect(noticeBoard.getAllArticles()).toEqual([article, article2]);
+        expect(noticeBoard.getAllArticles()).toEqual([article, article2]); // toEqual: 괄호안의 값과 같은지 비교, 문자열일경우 특히나 toEqual을 사용해야함
     });
 });
 
@@ -312,6 +312,7 @@ describe('Comment 요구사항 테스트', () => {
     let mySite;
 
     beforeEach(() => {
+        // 값을 초기화 시켜주는 jest함수!ㅡ
         // NOTE: Reset `mySite`
         mySite = new Site();
         const noticeBoard = new Board('공지사항');
